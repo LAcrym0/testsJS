@@ -3,6 +3,7 @@ var bodyparser = require('body-parser');
 var _ = require('lodash');
 var api = express();
 var contacts = [];
+var contact;
 var DEFAULT_PORT = 3000;
 
 
