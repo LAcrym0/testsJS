@@ -3,7 +3,6 @@ var bodyparser = require('body-parser');
 var _ = require('lodash');
 var api = express();
 var contacts = [];
-var contact;
 var DEFAULT_PORT = 3000;
 
 
@@ -22,7 +21,7 @@ api.get('/contacts/:name', function(req, res, next){
 api.post('/contacts', bodyparser.json(), function(req, res, next){
   var contact = req.body.contact;
   if (typeof contact !== 'object')
-    res.status(422).send('Unprocessable entity');
+    return res.status(422).send('Unprocessable entity');
   contacts.push(contact);
   res.send(contact);
 });
